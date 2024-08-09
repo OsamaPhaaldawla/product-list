@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Product list with cart</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <div class="content">
+          <h2>Desserts</h2>
+          <div class="desserts"></div>
+        </div>
+        <div class="cart">
+          <h3>your cart (<span>0</span>)</h3>
+          <img
+            class="show"
+            src="assets/images/illustration-empty-cart.svg"
+            alt=""
+          />
+          <p class="show">Your added items will appear here</p>
+          <div class="list"></div>
+          <div class="total-box display">
+            <h4>Order Total</h4>
+            <span class="total"></span>
+          </div>
+          <div class="delivery-type display">
+            <img src="assets/images/icon-carbon-neutral.svg" alt="" />
+            <p>This is a <span>carbon-neutral</span> delivery</p>
+          </div>
+          <button class="confirm display">confirm order</button>
+        </div>
+      </div>
+    </main>
+    <div class="pop-up">
+      <img src="assets/images/icon-order-confirmed.svg" alt="" />
+      <h3>order confirmed</h3>
+      <p>We hope you enjoy your food!</p>
+      <div class="order-list">
+        <!-- <div class="order-box">
+          <img src="assets/images/image-baklava-thumbnail.jpg" alt="" />
+          <div class="box-content">
+            <p class="name">Classic Tramisu</p>
+            <p class="count-price"><span>x1</span> <span>$5.50</span></p>
+            <span class="price">$5.50</span>
+          </div>
+        </div>
+        <div class="order-box">
+          <img src="assets/images/image-baklava-thumbnail.jpg" alt="" />
+          <div class="box-content">
+            <p class="name">Classic Tramisu</p>
+            <p class="count-price"><span>x1</span> <span>$5.50</span></p>
+            <span class="price">$5.50</span>
+          </div>
+        </div> -->
+      </div>
+      <div class="order-total">
+        <h5>Order Total</h5>
+        <p></p>
+      </div>
+      <button>Start New Order</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

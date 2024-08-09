@@ -1,0 +1,385 @@
+@import "sass/colors";
+// red, green, rose-(50-100-300-400-500-900)
+@import "sass/variables";
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    background-color: $rose-50;
+    position: relative;
+}
+
+.overlay::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0000004b;
+    z-index: 5;
+}
+
+.container {
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
+    .content {
+        width: 68%;
+        @media (max-width: 600px) {
+            & {
+                width: 100%;
+            }
+        }
+        @media (max-width: 992px) {
+            & {
+                width: 100%;
+            }
+        }
+        h2 {
+            font-size: $base-font-size * 2;
+            font-weight: 800; // TODO: 700
+            margin-bottom: 20px;
+        }
+        .desserts {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            .card {
+                width: 32%;
+                @media (max-width: 992px) {
+                    & {
+                        width: 49%;
+                    }
+                }
+                @media (max-width: 600px) {
+                    & {
+                        width: 100%;
+                    }
+                }
+                margin-bottom: 30px;
+                .preview {
+                    position: relative;
+                    margin-bottom: 30px;
+                    img {
+                        border-radius: 10px;
+                        width: 100%;
+                    }
+                    .add {
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 70%;
+                        background-color: white;
+                        font-size: $base-font-size;
+                        border: 1px solid $rose-400;
+                        border-radius: 25px;
+                        box-shadow: 1px 1px 1px rgba(#000000, 0.3);
+                        cursor: pointer;
+                        &:hover {
+                            color: $rose-500;
+                        }
+                        .addContent {
+                            padding: 15px 0;
+                            font-weight: 400;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            &:hover {
+                                color: $rose-500;
+                            }
+                        }
+                        img {
+                            width: 20px;
+                            margin-right: 10px;
+                        }
+                        &.quantity {
+                            background-color: $red;
+                            color: white;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px 8px;
+                            font-size: $base-font-size * 1.2;
+                            cursor: default;
+                            img {
+                                fill: white;
+                                width: 25px;
+                                height: 25px;
+                                padding: 3px;
+                                border: 1px solid white;
+                                border-radius: 50%;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .card-body {
+                    .card-title {
+                        color: #9e9e9e;
+                        margin-bottom: 8px;
+                    }
+                    p {
+                        margin-bottom: 8px;
+                    }
+                    .price {
+                        color: $red;
+                        font-weight: 800;
+                    }
+                }
+            }
+        }
+    }
+    .cart {
+        background-color: white;
+        padding: 20px;
+        padding-bottom: 40px;
+        border-radius: 10px;
+        box-shadow: $base-box-shadow;
+        height: fit-content;
+        width: 29%;
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+        @media (max-width: 992px) {
+            width: 100%;
+        }
+        h3 {
+            color: $red;
+            text-transform: capitalize;
+            font-size: $base-font-size * 1.8;
+        }
+        >img {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+        }
+        .display {
+            display: none;
+        }
+    }
+    .order {
+        // Confirm Order
+        .display {
+            display: block;
+        }
+        .show {
+            display: none;
+        }
+        .list {
+            .box {
+                width: 100%;
+                padding: 20px 0;
+                box-shadow: 0 1px 1px rgba(#000000, 0.1);
+                position: relative;
+                h4 {
+                    font-size: $base-font-size * 1.3;
+                    font-weight: normal; //TODO: 600
+                    margin-bottom: 10px;
+                }
+                .count {
+                    color: $red;
+                    margin-right: 8px;
+                }
+                .per-one {
+                    margin-right: 5px;
+                    color: #777;
+                    font-size: $base-font-size * 1.2;
+                }
+                .per-all {
+                    color: #333;
+                    font-size: $base-font-size * 1.2;
+                }
+                .remove {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        margin: 0;
+                        fill: #777;
+                        border: 1px solid #777;
+                        border-radius: 50%;
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+        .total-box {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h4 {
+                font-size: $base-font-size * 1.3;
+                color: #777;
+                font-weight: normal; // TODO: 600
+            }
+            .total {
+                font-size: $base-font-size * 2;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+        }
+        .delivery-type {
+            display: flex;
+            background-color: $rose-50;
+            padding: 20px 0;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: $base-font-size * 1.1;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            p {
+                margin-left: 10px;
+                span {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+// Pop up
+.pop-up {
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: white;
+    padding: 30px;
+    width: 500px;
+    max-height: 80%;
+    border-radius: 15px;
+    display: none;
+    overflow-y: auto;
+    >img {
+        width: 40px;
+        margin-bottom: 15px;
+    }
+    >h3 {
+        font-size: $base-font-size * 1.8;
+        font-weight: bold; // TODO: // 800
+        text-transform: capitalize;
+        margin-bottom: 10px;
+    }
+    >p {
+        font-size: $base-font-size * 0.8;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .order-list {
+        background-color: $rose-50;
+        .order-box {
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 1px 1px rgba(#000000, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            img {
+                width: 60px;
+                display: block;
+            }
+            .box-content {
+                margin-left: 15px;
+                width: 100%;
+                position: relative;
+                .name {
+                    margin-bottom: 10px;
+                }
+                .count-price {
+                    span:first-child {
+                        color: $red;
+                        margin-right: 5px;
+                    }
+                    span:last-child {
+                        color: #777;
+                    }
+                }
+                .price {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    .order-total {
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $rose-50;
+        margin-bottom: 20px;
+        h5 {
+            font-size: $base-font-size * 1.3;
+            color: #777;
+            font-weight: normal; // TODO: 600
+        }
+        p {
+            font-size: $base-font-size * 2;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    }
+    button {
+        margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+        width: 100%;
+        max-height: 90%;
+        h3 {
+            font-size: $base-font-size * 2;
+        }
+        >p {
+            font-size: $base-font-size;
+        }
+    }
+}
+
+// Componenets
+button {
+    width: 100%;
+    text-align: center;
+    background-color: $red;
+    color: white;
+    border-radius: 30px;
+    padding: 18px 0;
+    border: none;
+    font-size: $base-font-size * 1.4;
+    text-transform: capitalize;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+        background-color: hsl(12, 60%, 42%);
+    }
+}
